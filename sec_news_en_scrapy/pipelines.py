@@ -58,9 +58,9 @@ def save_key_word(item):
 def save_article(item):
     conn = db_handle()
     cursor = conn.cursor()
-    sql = "insert ignore into t_security_en_news_article(title, content, uri, src) values (%s,%s,%s,%s)"
+    sql = "insert ignore into t_security_en_news_article(title, content, uri) values (%s,%s,%s)"
     try:
-        cursor.execute(sql, (item['title'][0], item['content'], item['uri'], item['src']))
+        cursor.execute(sql, (item['title'][0], item['content'], item['uri']))
         cursor.connection.commit()
     except BaseException as e:
         print("存储错误", e, "<<<<<<原因在这里")
