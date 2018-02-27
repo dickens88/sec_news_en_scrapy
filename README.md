@@ -14,7 +14,22 @@ This Python Spider is base on Scrapy framework. It's main founction is use spide
 Install scrapy is really sample, you can visit [Scrapy Guide](https://doc.scrapy.org/en/latest/intro/install.html) to get some details. But before you do this, make sure you have already installed Python3 on your computer. 
 
 ## Dependent packages
+- nltk
+- numpy
+- pymysql
+- sklearn
 
 ## Database
+Your need to prepare for a MySQL in advance. You can find the table creation SQL script in project folder named secnewsdb.sql. It contains two table which will be used to save articles and key words.
 
 ## Run Spider
+In the scrapy root folder, eg. sec_news_en_scrapy. You can use scrapy command to list spdier .
+```
+scrapy list
+```
+![mark](http://oyy7pve7f.bkt.clouddn.com/blog/180227/b6l2HLhA7k.png)
+
+And then you can shoose one of them to execute.
+```
+scrapy crawl en_news
+```
