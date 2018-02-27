@@ -23,7 +23,7 @@ class HackerNewsSpider(scrapy.Spider):
         selector = Selector(response)
 
         item = SecEnNewsItem()
-        item['title'] = topic['title']
+        item['title'] = topic['title'][0]
         item['content'] = "".join(selector.xpath('//*[@id="articlebodyonly"]/div/div/text()').extract())
         item['uri'] = topic['link'][0]
         item['src'] = topic['src']

@@ -13,4 +13,5 @@ class SecEnNewsItem(scrapy.Item):
     title = scrapy.Field()
     content = scrapy.Field()
     uri = scrapy.Field()
+    src = scrapy.Field()
     pass

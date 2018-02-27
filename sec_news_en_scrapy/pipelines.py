@@ -32,7 +32,7 @@ def tokenize(text):
 
 def save_key_word(item):
     tfidf = TfidfVectorizer(token_pattern="(?u)\\b[\\w-]+\\b", stop_words='english')
-    tfidf.fit_transform([item['title'][0]])
+    tfidf.fit_transform([item['title']])
     indices = np.argsort(tfidf.idf_)[::-1]
     features = tfidf.get_feature_names()
     top_n = 20
@@ -48,7 +48,7 @@ def save_key_word(item):
         for k in word_map:
             if len(k) <= 2:
                 continue
-            cursor.execute(sql, (item['title'][0], k, int(word_map[k])*3))
+            cursor.execute(sql, (item['title'], k, int(word_map[k])*3))
         cursor.connection.commit()
     except BaseException as e:
         print("存储错误", e, "<<<<<<原因在这里")
@@ -58,9 +58,9 @@ def save_key_word(item):
 def save_article(item):
     conn = db_handle()
     cursor = conn.cursor()
-    sql = "insert ignore into t_security_en_news_article(title, content, uri) values (%s,%s,%s)"
+    sql = "insert ignore into t_security_en_news_article(title, content, uri, src) values (%s,%s,%s,%s)"
     try:
-        cursor.execute(sql, (item['title'][0], item['content'], item['uri']))
+        cursor.execute(sql, (item['title'], item['content'], item['uri'], item['src']))
         cursor.connection.commit()
     except BaseException as e:
         print("存储错误", e, "<<<<<<原因在这里")
