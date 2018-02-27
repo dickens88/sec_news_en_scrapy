@@ -13,9 +13,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 def db_handle():
     conn = pymysql.connect(
-        host="80.158.2.192",
+        host="localhost",
         user="root",
-        passwd="Charlesliu@2017abc",
+        passwd="pwd",
         charset="utf8",
         db='secnews',
         port=3306)
@@ -51,7 +51,7 @@ def save_key_word(item):
             cursor.execute(sql, (item['title'], k, int(word_map[k])*3))
         cursor.connection.commit()
     except BaseException as e:
-        print("存储错误", e, "<<<<<<原因在这里")
+        print("error", e, "<<<<<<reason")
         conn.rollback()
 
 
@@ -63,7 +63,7 @@ def save_article(item):
         cursor.execute(sql, (item['title'], item['content'], item['uri'], item['src']))
         cursor.connection.commit()
     except BaseException as e:
-        print("存储错误", e, "<<<<<<原因在这里")
+        print("error", e, "<<<<<<reason")
         conn.rollback()
 
 
