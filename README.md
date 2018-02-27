@@ -11,7 +11,7 @@ This Python Spider is base on Scrapy framework. It's main founction is use spide
 
 # How to
 ##  Install Scrapy
-Install scrapy is really sample, you can visit [Scrapy Guide](https://doc.scrapy.org/en/latest/intro/install.html) to get some details.
+Install scrapy is really sample, you can visit [Scrapy Guide](https://doc.scrapy.org/en/latest/intro/install.html) to get some details. But before you do this, make sure you have already installed Python3 on your computer. 
 
 ## Dependent packages
 
