@@ -21,6 +21,7 @@ Install scrapy is really sample, you can visit [Scrapy Guide](https://doc.scrapy
 
 ## Database
 Your need to prepare for a MySQL in advance. You can find the table creation SQL script in project folder named secnewsdb.sql. It contains two table which will be used to save articles and key words.
+Remeber, you also need to modify pipelines.py. Add your database connection infomation into this py file, so that spdier will output all the data into this database you specified。
 
 ## Run Spider
 In the scrapy root folder, eg. sec_news_en_scrapy. You can use scrapy command to list spdier .
@@ -33,3 +34,6 @@ And then you can shoose one of them to execute.
 ```
 scrapy crawl en_news
 ```
+## Result
+You can use MySQL client to check the result.
+![mark](http://oyy7pve7f.bkt.clouddn.com/blog/180227/iDDkcAFB4L.png)
